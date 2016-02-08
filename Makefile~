@@ -1,0 +1,37 @@
+##
+## Makefile for makefile in /home/peau_c
+##
+## Made by
+## Login   <peau_c@epitech.net>
+##
+## Started on  Wed Dec  9 12:17:54 2015
+## Last update Mon Dec 21 22:10:29 2015 
+##
+
+SRC=		src/main.c \
+		src/reading.c \
+		src/my_strlen.c \
+		src/parsing.c \
+		src/getinfo.c \
+		src/my_putstr.c \
+
+OBJ=		$(SRC:.c=.o)
+
+NAME=		bsq
+
+CC=		gcc
+
+CFLAGS=		-W -Werror -Wall -Wextra -ansi -pedantic
+
+$(NAME):	$(OBJ)
+		gcc -o $(NAME) $(OBJ)
+
+all:		$(NAME)
+
+clean:
+		rm $(OBJ)
+
+fclean:		clean
+		rm $(NAME)
+
+re:		fclean all
