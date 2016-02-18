@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 15:44:51 2016 Clement Peau
-** Last update Mon Feb  8 23:44:11 2016 Clement Peau
+** Last update Wed Feb 10 16:09:10 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -30,8 +30,14 @@ int		main_calc(t_allum *allum)
       if ((check_error_matches(allum, matches, atoi(lines) - 1)) == 1)
 	break;
       remove_matches(allum, atoi(matches), atoi(lines) - 1);
+      if ((check_win(allum, 0)) == 1)
+	break;
+      ia(allum);
+      if ((check_win(allum, 1)) == 1)
+	break;
       showallum(allum);
     }
   free(matches);
   free(lines);
+  return (0);
 }

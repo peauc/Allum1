@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Wed Dec  9 12:17:54 2015
-## Last update Mon Feb  8 21:28:03 2016 Clement Peau
+## Last update Wed Feb 10 16:09:42 2016 Clement Peau
 ##
 
 SRC=		src/main.c \
@@ -15,6 +15,9 @@ SRC=		src/main.c \
 		src/strlen.c \
 		src/error_line.c \
 		src/remove_matches.c \
+		src/ia.c \
+		src/putnbr.c \
+		src/check_win.c \
 
 OBJ=		$(SRC:.c=.o)
 

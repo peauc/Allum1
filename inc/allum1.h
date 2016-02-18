@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 12:59:12 2016 Clement Peau
-** Last update Tue Feb  9 16:50:34 2016 Clement Peau
+** Last update Thu Feb 18 10:27:43 2016 Clement Peau
 */
 
 #ifndef _allum1_
@@ -16,11 +16,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct	s_allum
 {
   int		*tab;
-  int		line;
+  int	 	line;
   int		max;
   int		star_line;
 }		t_allum;
@@ -31,8 +32,14 @@ typedef struct	s_chose
   int		matches;
 }		t_chose;
 
+void ia(t_allum *);
+int check_win(t_allum *, int);
+void putnbr(int );
+int decal_max(t_allum *);
+int *create_array(t_allum *);
 int check_error_matches(t_allum *, char *, int );
 int check_error_line(t_allum *, char *);
+void remove_matches(t_allum *, int, int);
 int main_calc(t_allum *);
 int my_strlen(char *);
 void showallum(t_allum *);
