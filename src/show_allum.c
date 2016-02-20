@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 12:50:57 2016 Clement Peau
-** Last update Thu Feb 11 13:22:01 2016 Clement Peau
+** Last update Sat Feb 20 11:59:07 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -79,5 +79,4 @@ void	showallum(t_allum *allum)
       while_boucle(allum, count, &decal, i);
     }
   star_line(allum);
-  write(1, "\n", 1);
 }

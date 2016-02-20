@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 10 14:07:02 2016 Clement Peau
-** Last update Thu Feb 11 13:23:40 2016 Clement Peau
+** Last update Thu Feb 18 12:25:20 2016 Clement Peau
 */
 
 #include "allum1.h"
 
-void	ia(t_allum *allum)
+void	ia_rdm(t_allum *allum)
 {
   int	ligne;
   int	allumettes;

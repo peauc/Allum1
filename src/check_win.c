@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 10 15:49:17 2016 Clement Peau
-** Last update Wed Feb 10 16:11:50 2016 Clement Peau
+** Last update Sat Feb 20 12:09:22 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -24,11 +24,13 @@ int	check_win(t_allum *allum, int mode)
     }
   if (finnit == 1 && mode == 0)
     {
+      showallum(allum);
       MY_PUTSTR("You lost, too bad..\n");
       return (1);
     }
   else if (finnit == 1 && mode == 1)
     {
+      showallum(allum);
       MY_PUTSTR("I lost.. snif.. but I’ll get you next time!!\n");
       return (1);
     }
