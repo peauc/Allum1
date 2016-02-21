@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sat Feb  6 17:17:30 2016 Clement Peau
-** Last update Fri Feb 19 20:00:37 2016 Clement Peau
+** Last update Sun Feb 21 23:18:04 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -31,6 +31,7 @@ int		main(int ac, char **av)
       else
 	allum.mode = 2;
     }
+  allum.turn = 0;
   create_array(&allum);
   main_calc(&allum);
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 18:47:20 2016 Clement Peau
-** Last update Fri Feb 19 18:11:53 2016 Clement Peau
+** Last update Sun Feb 21 23:27:28 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -15,53 +15,52 @@ int	check_error_line(t_allum *allum, char *str)
   int	i;
 
   i = -1;
+  while (str[++i] != '\n' && str[i] != 0)
+    {
+      if ((str[i] > '9' || str[i] < '0' || getnbr(str) == 0) && str[i] != 0)
+	{
+	  MY_PUTSTR("Error: invalid input (positive number expected)");
+	  main_calc(allum);
+	  return (1);
+	}
+    }
   if (getnbr(str) - 1 > allum->line || getnbr(str) - 1 < 0)
     {
-    	  MY_PUTSTR("Error: this line is out of range\n");
+    	  MY_PUTSTR("Error: this line is out of range");
 	  main_calc(allum);
 	  return (1);
     }
   if (allum->tab[getnbr(str) - 1] == 0)
     {
-      MY_PUTSTR("Error: Line is empty\n");
+      MY_PUTSTR("Error: Line is empty");
       main_calc(allum);
       return (1);
-    }
-  while (str[++i] != '\n' && str[i] != 0)
-    {
-      if ((str[i] > '9' || str[i] < '0') && str[i] != 0)
-	{
-	  MY_PUTSTR("Error: invalid input (positive number expected)\n");
-	  main_calc(allum);
-	  return (1);
-	}
     }
   return (0);
 }
 
 int	check_error_matches(t_allum *allum, char *str, int nb)
 {
-  int	i;
+int	i;
 
-   i = -1;
+  i = -1;
   while (str[++i] != '\n' && str[i] != 0)
+    if ((str[i] > '9' || str[i] < '0' || getnbr(str) == 0) && str[i] != 0)
+      {
+	MY_PUTSTR("Error: invalid input (positive number expected)");
+	main_calc(allum);
+	return (1);
+      }
+  if (getnbr(str) - 1 < 0)
     {
-      if ((str[i] > '9' || str[i] < '0') && str[i] != 0)
-	{
-	  MY_PUTSTR("Error: Only numbers\n");
-	  main_calc(allum);
-	  return (1);
-	}
+      MY_PUTSTR("Error: invalid input (positive number expected)");
+      main_calc(allum);
+      return (1);
     }
   if (getnbr(str) > allum->tab[nb])
     {
-    	  MY_PUTSTR("Error: not enought match(es) on this line\n");
-	  main_calc(allum);
-	  return (1);
-    }
-  if (str[0] == '\n')
-    {
-      MY_PUTSTR("Error: invalid input (positive number expected)\n");
+      printf("nbr %d", getnbr(str));
+      MY_PUTSTR("Error: not enought matches on this line");
       main_calc(allum);
       return (1);
     }

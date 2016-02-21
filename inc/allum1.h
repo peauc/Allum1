@@ -5,13 +5,13 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 12:59:12 2016 Clement Peau
-** Last update Fri Feb 19 19:09:02 2016 Clement Peau
+** Last update Sun Feb 21 23:17:38 2016 Clement Peau
 */
 
 #ifndef _allum1_
 # define _allum1_
 
-#define MY_PUTSTR(X)	write(1, X, my_strlen(X))
+#define MY_PUTSTR(X)	write(1, X, my_strlen(X) - 1)
 
 #include <stdio.h>
 #include <unistd.h>
@@ -25,6 +25,7 @@ typedef struct	s_allum
   int		max;
   int		star_line;
   int		mode;
+  int		turn;
 }		t_allum;
 
 typedef struct	s_chose
@@ -55,6 +56,7 @@ void remove_matches(t_allum *, int, int);
 ** UTILS
 */
 
+char *get_next_line(const int);
 int my_strlen(char *);
 int getnbr(char *);
 void putnbr(int );

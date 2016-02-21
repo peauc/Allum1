@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 15:44:51 2016 Clement Peau
-** Last update Sat Feb 20 12:41:31 2016 Clement Peau
+** Last update Sun Feb 21 23:29:41 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -14,13 +14,26 @@ void		player_removed(int matches, int lines)
 {
   MY_PUTSTR("Player removed ");
   putnbr(matches);
-  MY_PUTSTR("match(es) from line ");
+  MY_PUTSTR(" match(es) from line ");
   putnbr(lines);
   MY_PUTSTR("\n");
 }
 
 int	calc_continued(t_allum *allum, char *matches, char *lines)
 {
+  if (allum->turn == 0)
+    {
+      MY_PUTSTR("\nYour turn:");
+      allum->turn++;
+    }
+  MY_PUTSTR("\nLine: ");
+  if ((lines = get_next_line(0)) == NULL)
+    return (1);
+  if ((check_error_line(allum, lines)) == 1)
+    return (1);
+  MY_PUTSTR("Matches: ");
+  if ((matches = get_next_line(0)) == NULL)
+    return (1);
   if ((check_error_matches(allum, matches, getnbr(lines) - 1)) == 1)
     return (1);
   remove_matches(allum, getnbr(matches), getnbr(lines) - 1);
@@ -28,7 +41,31 @@ int	calc_continued(t_allum *allum, char *matches, char *lines)
   if ((check_win(allum, 0)) == 1)
     return (1);
   chose_dif(allum);
+  if ((check_win(allum, 1)) == 1)
+    return (1);
+  showallum(allum);
+  allum->turn = 0;
   return (0);
+}
+
+char		*read_it(char *str)
+{
+  int           i;
+  int           readed;
+
+  if ((readed = read(0, str, 4096) ) == 0)
+      return (NULL);
+  i = -1;
+  while (str[++i] != 0 && str[i] != 10)
+    {
+      if (str[i] == 10)
+	str[i] = 0;
+      if (str[i] == '\t')
+	str[i] = ' ';
+    }
+  if (str[0] == 0)
+    return (NULL);
+  return (str);
 }
 
 int		main_calc(t_allum *allum)
@@ -42,17 +79,8 @@ int		main_calc(t_allum *allum)
   game = 0;
   while (game == 0)
     {
-      MY_PUTSTR("\nYour turn:\nLine: ");
-      read(0, lines, 4096);
-      if ((check_error_line(allum, lines)) == 1)
-	break;
-      MY_PUTSTR("Matches: ");
-      read(0, matches, 4096);
       if (calc_continued(allum, matches, lines) == 1)
 	break;
-      if ((check_win(allum, 1)) == 1)
-	break;
-      showallum(allum);
     }
   free(matches);
   free(lines);
