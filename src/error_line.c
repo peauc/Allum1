@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 18:47:20 2016 Clement Peau
-** Last update Sun Feb 21 23:27:28 2016 Clement Peau
+** Last update Mon Feb 22 15:12:44 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -59,7 +59,6 @@ int	i;
     }
   if (getnbr(str) > allum->tab[nb])
     {
-      printf("nbr %d", getnbr(str));
       MY_PUTSTR("Error: not enought matches on this line");
       main_calc(allum);
       return (1);
