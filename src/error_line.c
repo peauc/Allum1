@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 18:47:20 2016 Clement Peau
-** Last update Mon Feb 22 15:12:44 2016 Clement Peau
+** Last update Wed Feb 24 17:35:22 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -24,7 +24,7 @@ int	check_error_line(t_allum *allum, char *str)
 	  return (1);
 	}
     }
-  if (getnbr(str) - 1 > allum->line || getnbr(str) - 1 < 0)
+  if (getnbr(str) - 1 >= allum->line || getnbr(str) - 1 < 0)
     {
     	  MY_PUTSTR("Error: this line is out of range");
 	  main_calc(allum);
