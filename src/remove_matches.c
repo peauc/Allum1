@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Feb  8 21:20:56 2016 Clement Peau
-** Last update Sun Feb 21 19:07:01 2016 Clement Peau
+** Last update Fri Feb 26 16:53:52 2016 Clement Peau
 */
 
 #include "allum1.h"
@@ -31,7 +31,7 @@ void	is_a_single_line(t_allum *allum, int matches, int lines)
   else
     remove_matches(allum, matches, lines);
   MY_PUTSTR("\nAI's turn...\n");
-  MY_PUTSTR("AI removes ");
+  MY_PUTSTR("AI removed ");
   putnbr(matches);
   MY_PUTSTR(" match(es) from line ");
   putnbr(lines);

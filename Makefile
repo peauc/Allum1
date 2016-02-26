@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Wed Dec  9 12:17:54 2015
-## Last update Sun Feb 21 20:52:17 2016 Clement Peau
+## Last update Wed Feb 24 19:14:51 2016 Clement Peau
 ##
 
 SRC=		src/main.c \
@@ -27,7 +27,7 @@ OBJ=		$(SRC:.c=.o)
 
 NAME=		allum1
 
-CC=		gcc -g $(INC)
+CC=		gcc  $(INC)
 
 INC=		-Iinc/
 
